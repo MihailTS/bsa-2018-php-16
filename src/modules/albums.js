@@ -8,17 +8,20 @@ const state = {
 };
 
 const getters = {
+  albumsOwner:(state, getters, rootState) => (id) => {
+      return rootState.users.users[id];
+  },
   filteredAlbums: state => {
       if (!state.filterByUserId) {
         return state.albums;
       } else {
         let validAlbums = Object.values(state.albums)
           .filter(album => (
-            album.userId && album.userId === state.filterByUserId
+            album.userId && album.userId == state.filterByUserId
           ));
         return {...validAlbums};
       }
-  }
+  },
 };
 
 const mutations = {
@@ -88,7 +91,7 @@ const actions = {
     commit(mutationTypes.ADD_ALBUM, data);
   },
 
-  async changeFilter({ commit }, data) {
+  async changeAlbumsFilter({ commit }, data) {
     await waitForAction("CHANGE_ALBUMS_FILTER");
     commit(mutationTypes.CHANGE_ALBUMS_FILTER, data);
   },
