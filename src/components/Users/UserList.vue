@@ -15,7 +15,7 @@
       </thead>
       <tr v-for="user in this.users" :key="user.id">
           <td>{{user.id}}</td>
-          <td>{{user.name}}</td>
+          <td><router-link :to="{ name: 'user', params:{id:user.id} }">{{user.name}}</router-link></td>
           <td>{{user.email}}</td>
           <td><img :src="user.avatar"/></td>
           <td><router-link :to="{ name: 'user-edit', params:{id:user.id} }">Edit</router-link></td>

@@ -15,10 +15,10 @@
       </thead>
       <tr v-for="album in this.albums" :key="album.id">
           <td>{{album.id}}</td>
-          <td>{{album.title}}</td>
+          <td><router-link :to="{ name: 'album', params:{id:album.id} }">{{album.title}}</router-link></td>
           <td><img :src="album.preview"/></td>
           <td>
-            <router-link :to="{ name: 'user-edit', params:{id:album.userId} }">{{album.userId}}</router-link>
+            <router-link :to="{ name: 'user', params:{id:album.userId} }">{{album.userId}}</router-link>
           </td>
           <td><router-link :to="{ name: 'album-edit', params:{id:album.id} }">Edit</router-link></td>
           <td><button @click="deleteAlbum(album.id)">Delete</button></td>

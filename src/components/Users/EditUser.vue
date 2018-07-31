@@ -15,9 +15,6 @@ export default {
     ...mapState({
       user: function(state) {return state.users.users[this.$route.params.id]}
     }),
-    user() {
-      return this.$store.state.users.users[this.$route.params.id];
-    },
     editedUser:function(){
       if(this.user){
         return {
