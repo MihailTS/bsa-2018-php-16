@@ -19,6 +19,7 @@ export default {
   created(){
     this.$store.dispatch('init');
     this.$store.dispatch('albumsInit');
+    this.$store.dispatch('photosInit');
   }
 }
 </script>

@@ -8,8 +8,8 @@ const state = {
 };
 
 const getters = {
-  albumsOwner:(state, getters, rootState) => (id) => {
-      return rootState.users.users[id];
+  albumsOwner:(state, getters, rootState) => (userId) => {
+      return rootState.users.users[userId];
   },
   filteredAlbums: state => {
       if (!state.filterByUserId) {
