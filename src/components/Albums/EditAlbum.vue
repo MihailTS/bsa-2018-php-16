@@ -22,6 +22,7 @@
         <div class="photo" v-for="photo in this.photos(album.id)">
           <img :src="photo.url">
           <p>{{photo.title}}</p>
+          <button type="button" @click.stop.prevent="deletePhoto(photo.id)">Delete photo</button>
         </div>
       </div>
   </form>
@@ -67,6 +68,9 @@ export default {
     savePhoto: function() {
       this.$store.dispatch("addPhoto", this.newPhoto);
     },
+    deletePhoto: function(photoId) {
+      this.$store.dispatch("deletePhoto", photoId);
+    },
     saveAlbum: function() {
       this.$store.dispatch("editAlbum", {
           id:this.$route.params.id,
@@ -83,4 +87,15 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+ .photo{
+    width:100px;
+   overflow:hidden;
+   justify-content: center;
+   align-content: center
+ } 
+  .photo img{
+    width:100px;
+    height:100px;
+  }
+</style>

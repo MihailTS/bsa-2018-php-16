@@ -54,6 +54,7 @@ async function getInitialData(){
   let photos = {};
   photosData.forEach(photo => {
       photos[photo.id]={
+          id:photo.id,
           title: photo.title,
           url: photo.url,
           albumId: photo.albumId,
