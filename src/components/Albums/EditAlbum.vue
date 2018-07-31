@@ -18,7 +18,7 @@
       <button type="button" @click.stop.prevent="savePhoto">Save photo</button>
       <br><br>
       <h3>Photos:</h3>
-      <div style="display:flex;flex-wrap:wrap;">
+      <div class="photos">
         <div class="photo" v-for="photo in this.photos(album.id)">
           <img :src="photo.url">
           <p>{{photo.title}}</p>
@@ -42,8 +42,8 @@ export default {
   },
   computed:{
     ...mapState({
-      users: function(state) {return state.users.users},
-      album: function(state) {return state.albums.albums[this.$route.params.id]}
+      users: function(state) {return state.users.users || {}},
+      album: function(state) {return state.albums.albums[this.$route.params.id] || {}}
     }),
     ...mapGetters({
       photos:"photosByAlbum"
@@ -88,12 +88,16 @@ export default {
 </script>
 
 <style>
- .photo{
+  .photos{
+    display:flex;
+    flex-wrap:wrap;
+  }
+  .photo{
     width:100px;
-   overflow:hidden;
-   justify-content: center;
-   align-content: center
- } 
+    overflow:hidden;
+    justify-content: center;
+    align-content: center
+  } 
   .photo img{
     width:100px;
     height:100px;
