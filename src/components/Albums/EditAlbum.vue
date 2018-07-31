@@ -1,53 +1,56 @@
 <template>
-  <div>
-    <table class="albums-table striped">
-      <thead>
-          <tr>
-              <th>Id</th>
-              <th>Title</th>
-              <th>Preview Image</th>
-              <th>UserId</th>
-              <th></th>
-              <th></th>
-          </tr> 
-      </thead>
-      <tr v-for="album in this.albums" :key="album.id">
-          <td>{{album.id}}</td>
-          <td>{{album.title}}</td>
-          <td><img :src="album.preview"/></td>
-          <td>
-            <router-link :to="{ name: 'user-edit', params:{id:album.userId} }">{{album.userId}}</router-link>
-          </td>
-          <td><router-link :to="{ name: 'album-edit', params:{id:album.id} }">Edit</router-link></td>
-          <td><button @click="deleteAlbum(album.id)">Delete</button></td>
-      </tr>
-    </table>
-    <select></select>
-    <router-link :to="{ name: 'album-add'}">ADD ALBUM</router-link>
-  </div>
+  <form>
+      <label>Title<input v-model="editedAlbum.title" type="text" name="title"></label>
+      <label>User ID
+        <select v-model="editedAlbum.userId">
+          <option v-for="user in users" v-bind:value="user.id">
+            {{ user.name }}
+          </option>
+        </select>
+      </label>
+      <label>Preview URL<input v-model="editedAlbum.preview" type="text" name="preview"></label>
+      <button type="button" @click.stop.prevent="saveAlbum">Save album</button>
+      <button type="button" @click.stop.prevent="deleteAlbum">Delete album</button>
+  </form>
 </template>
 
-<script>
-import { mapState, mapGetters } from 'vuex';
+<script> 
+  import { mapState } from 'vuex';
 export default {
-  computed: {
+  computed:{
     ...mapState({
-      filterByUserId: state => state.albums.filterByUserId
+      users: function(state) {return state.users.users},
+      album: function(state) {return state.albums.albums[this.$route.params.id]}
     }),
-    ...mapGetters({
-        albums:'filteredAlbums'
-    })
-  },
-  methods: {
-    updateFilter(filter){   
-      this.$store.dispatch('changeAlbumsFilter', filter.target.value);
-    },
-    deleteAlbum(albumId){
-      this.$store.dispatch('deleteAlbum', albumId);
+    editedAlbum:function(){
+      if(this.album){
+        return {
+          title:this.album.title,
+          userId:this.album.userId,
+          preview:this.album.preview
+        }
+      }else{
+        return {
+          title:"",
+          userId:"",
+          preview:""
+        }
+      }
     }
   },
-  mounted(){
-    this.$store.dispatch('albumsInit');
+  methods: {
+    saveAlbum: function() {
+      this.$store.dispatch("editAlbum", {
+          id:this.$route.params.id,
+          data:this.editedAlbum
+        }
+      );
+      this.$router.go(-1);
+    },
+    deleteAlbum:function(){
+      this.$store.dispatch('deleteAlbum', this.$route.params.id);
+      this.$router.go(-1);
+    }
   }
 }
 </script>

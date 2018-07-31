@@ -45,9 +45,6 @@ export default {
     deleteAlbum(albumId){
       this.$store.dispatch('deleteAlbum', albumId);
     }
-  },
-  mounted(){
-    this.$store.dispatch('albumsInit');
   }
 }
 </script>

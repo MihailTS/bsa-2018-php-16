@@ -34,12 +34,16 @@ const mutations = {
   },
   [mutationTypes.ADD_ALBUM] (state, album) {
     state.lastId++;
-    state.albums[state.lastId]={
-      id: state.lastId,
-      title: album.title,
-      preview: album.preview,
-      userId: album.userId
-    };
+    state.albums = {
+      ...state.albums,
+      [state.lastId]:{
+        id: state.lastId,
+        title: album.title,
+        preview: album.preview,
+        userId: album.userId
+      }
+    }
+    
   },
   [mutationTypes.EDIT_ALBUM] (state, album) {
     state.albums = {

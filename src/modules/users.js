@@ -35,12 +35,15 @@ const mutations = {
   },
   [mutationTypes.ADD_USER] (state, user) {
     state.lastId++;
-    state.users[state.lastId]={
-      id: state.lastId,
-      name: user.name,
-      email: user.email,
-      avatar: user.avatar
-    };
+    state.users = {
+      ...state.users,
+      [state.lastId]:{
+        id: state.lastId,
+        name: user.name,
+        email: user.email,
+        avatar: user.avatar
+      }
+    } 
   },
   [mutationTypes.EDIT_USER] (state, user) {
     state.users = {

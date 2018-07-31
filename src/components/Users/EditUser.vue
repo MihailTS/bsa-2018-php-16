@@ -43,7 +43,7 @@ export default {
       );
       this.$router.go(-1);
     },
-    deleteUser(userId){
+    deleteUser: function(){
       this.$store.dispatch('deleteUser', this.$route.params.id);
       this.$router.go(-1);
     }

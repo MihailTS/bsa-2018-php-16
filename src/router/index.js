@@ -5,7 +5,7 @@ import EditUser from '@/components/Users/EditUser'
 import AddUser from '@/components/Users/AddUser'
 import AlbumList from '@/components/Albums/AlbumList'
 import AddAlbum from '@/components/Albums/AddAlbum'
-//import EditAlbum from '@/components/Albums/EditAlbum'
+import EditAlbum from '@/components/Albums/EditAlbum'
 
 Vue.use(Router)
 
@@ -37,11 +37,11 @@ export default new Router({
       name: 'albums',
       component: AlbumList
     },
-   /* {
+    {
       path: '/albums/:id/edit',
       name: 'album-edit',
       component: EditAlbum
-    },*/
+    },
     {
       path: '/albums/add',
       name: 'album-add',
