@@ -98,8 +98,14 @@ const actions = {
     commit(mutationTypes.EDIT_USER, data);
   },
 
-  async deleteUser({ commit }, id) {
+  async deleteUser({ commit,rootState }, id) {
     await waitForAction("DELETE_USER");
+    console.log(rootState.albums.albums);
+    for(let albumId in rootState.albums.albums){
+      if(rootState.albums.albums[albumId].userId === id){
+          commit(mutationTypes.DELETE_ALBUM, albumId);
+      }
+    }
     commit(mutationTypes.DELETE_USER, id);
   }
 };
