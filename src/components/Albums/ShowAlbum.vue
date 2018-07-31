@@ -32,13 +32,13 @@ export default {
 
 <style>
  .photo{
-    width:200px;
+    width:100px;
    overflow:hidden;
    justify-content: center;
    align-content: center
  } 
   .photo img{
-    width:200px;
-    height:200px;
+    width:100px;
+    height:100px;
   }
 </style>
