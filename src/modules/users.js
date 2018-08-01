@@ -100,7 +100,6 @@ const actions = {
 
   async deleteUser({ commit,rootState }, id) {
     await waitForAction("DELETE_USER");
-    console.log(rootState.albums.albums);
     for(let albumId in rootState.albums.albums){
       if(rootState.albums.albums[albumId].userId === id){
           commit(mutationTypes.DELETE_ALBUM, albumId);

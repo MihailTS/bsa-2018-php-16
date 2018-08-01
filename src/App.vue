@@ -29,6 +29,7 @@ export default {
     padding:10px 20px;
   }
   .btn{
+    font-size:1em;
     cursor:pointer;
     display:inline-block;
     outline: none;
@@ -39,6 +40,9 @@ export default {
     margin:0 15px;
     padding:5px 10px;
     border-radius:6px;
+  }
+  .btn.red-btn{
+    background: #cb2d2d;
   }
   table{
     border-spacing: 0;
