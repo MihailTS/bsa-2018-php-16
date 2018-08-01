@@ -26,7 +26,7 @@
             <router-link :to="{ name: 'user', params:{id:album.userId} }">{{albumsOwner(album.userId).name}}</router-link>
           </td>
           <td><router-link class="btn" :to="{ name: 'album-edit', params:{id:album.id} }">Edit</router-link></td>
-          <td><button class="btn btn-red" @click="deleteAlbum(album.id)">Delete</button></td>
+          <td><button class="btn red-btn" @click="deleteAlbum(album.id)">Delete</button></td>
       </tr>
     </table>
   </div>
@@ -40,7 +40,7 @@ export default {
       filterByUserId: state => state.albums.filterByUserId
     }),
     users: function(){
-      return this.$store.state.users.users
+      return this.$store.state.users.users || {}
     },
     ...mapGetters({
         albums:'filteredAlbums',

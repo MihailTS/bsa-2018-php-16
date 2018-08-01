@@ -101,8 +101,13 @@ const actions = {
     commit(mutationTypes.EDIT_ALBUM, data);
   },
 
-  async deleteAlbum({ commit }, id) {
+  async deleteAlbum({ commit, rootState  }, id) {
     await waitForAction("DELETE_ALBUM");
+    for(let photoId in rootState.photos.photos){
+      if(rootState.photos.photos[photoId].albumId === id){
+          commit(mutationTypes.DELETE_PHOTO, photoId);
+      }
+    }
     commit(mutationTypes.DELETE_ALBUM, id);
   }
 };
