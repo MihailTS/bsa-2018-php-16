@@ -40,10 +40,13 @@ export default {
     flex-wrap:wrap;
   }
   .photo{
+    margin:5px 2px;
     width:100px;
+    height:300px;
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
     overflow:hidden;
-    justify-content: center;
-    align-content: center
   } 
   .photo img{
     width:100px;

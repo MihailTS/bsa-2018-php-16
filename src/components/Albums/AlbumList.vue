@@ -6,7 +6,7 @@
           {{ user.name }}
         </option>
     </select>
-    <router-link :to="{ name: 'album-add'}">ADD ALBUM</router-link>
+    <router-link class="btn" :to="{ name: 'album-add'}">ADD ALBUM</router-link>
     <table class="albums-table striped">
       <thead>
           <tr>
@@ -21,12 +21,12 @@
       <tr v-for="album in this.albums" :key="album.id">
           <td>{{album.id}}</td>
           <td><router-link :to="{ name: 'album', params:{id:album.id} }">{{album.title}}</router-link></td>
-          <td><img :src="album.preview"/></td>
+          <td><img class="preview-img" :src="album.preview"/></td>
           <td>
             <router-link :to="{ name: 'user', params:{id:album.userId} }">{{albumsOwner(album.userId).name}}</router-link>
           </td>
-          <td><router-link :to="{ name: 'album-edit', params:{id:album.id} }">Edit</router-link></td>
-          <td><button @click="deleteAlbum(album.id)">Delete</button></td>
+          <td><router-link class="btn" :to="{ name: 'album-edit', params:{id:album.id} }">Edit</router-link></td>
+          <td><button class="btn btn-red" @click="deleteAlbum(album.id)">Delete</button></td>
       </tr>
     </table>
   </div>
@@ -58,4 +58,15 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+  .preview-img{
+    width:50px;
+    height:50px;
+  }
+  .albums-table{
+    margin-top:10px;
+  }
+  .albums-table td{
+    text-align:center;
+  }
+</style>

@@ -3,8 +3,8 @@
       <label>Name<input v-model="editedUser.name" type="text" name="name"></label>
       <label>Email<input v-model="editedUser.email" type="email" name="email"></label>
       <label>Avatar URL<input v-model="editedUser.avatar" type="text" name="avatar"></label>
-      <button type="button" @click.stop.prevent="saveUser">Save user</button>
-      <button type="button" @click.stop.prevent="deleteUser">Delete user</button>
+      <button class="btn" type="button" @click.stop.prevent="saveUser">Save user</button>
+      <button class="btn red-btn" type="button" @click.stop.prevent="deleteUser">Delete user</button>
   </form>
 </template>
 

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <input placeholder="SERCH..." :value="filter" @input.trim="updateFilter">
-    <router-link :to="{ name: 'user-add'}">ADD USER</router-link>
+    <input type="text" class="filter" placeholder="SERCH..." :value="filter" @input.trim="updateFilter">
+    <router-link class="add-user-btn btn" :to="{ name: 'user-add'}">ADD USER</router-link>
     <table class="users-table striped">
       <thead>
           <tr>
@@ -18,8 +18,8 @@
           <td><router-link :to="{ name: 'user', params:{id:user.id} }">{{user.name}}</router-link></td>
           <td>{{user.email}}</td>
           <td><img :src="user.avatar"/></td>
-          <td><router-link :to="{ name: 'user-edit', params:{id:user.id} }">Edit</router-link></td>
-          <td><button @click="deleteUser(user.id)">Delete</button></td>
+          <td><router-link class="btn" :to="{ name: 'user-edit', params:{id:user.id} }">Edit</router-link></td>
+          <td><button class="btn red-btn"  @click="deleteUser(user.id)">Delete</button></td>
       </tr>
     </table>
   </div>
@@ -50,4 +50,11 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+    .users-table{
+        margin-top:10px;
+    }
+    .filter{
+        width:300px;
+    }
+</style>

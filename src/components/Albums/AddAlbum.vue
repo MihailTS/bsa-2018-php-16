@@ -9,7 +9,7 @@
         </select>
       </label>
       <label>Preview URL<input v-model="newAlbum.preview" type="text" name="preview"></label>
-      <button type="button" @click.stop.prevent="saveAlbum">Save album</button>
+      <button class="btn" type="button" @click.stop.prevent="saveAlbum">Save album</button>
   </form>
 </template>
 

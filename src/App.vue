@@ -25,4 +25,36 @@ export default {
 </script>
 
 <style>
+  main{
+    padding:10px 20px;
+  }
+  .btn{
+    cursor:pointer;
+    display:inline-block;
+    outline: none;
+    border:1px solid black;
+    text-decoration: none;
+    background:#106e99;
+    color:white;
+    margin:0 15px;
+    padding:5px 10px;
+    border-radius:6px;
+  }
+  table{
+    border-spacing: 0;
+  }
+  .striped tr:nth-child(2n){
+    background: #e1e1e1;
+  }
+  label{
+    display:block;
+    margin:10px 0;
+  }
+  input[type="text"],input[type="email"],select{
+    border-radius: 6px;
+    outline: none;
+    margin:0 5px;
+    border:1px solid black;
+    padding:5px;
+  }
 </style>
