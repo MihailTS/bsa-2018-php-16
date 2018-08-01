@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div>Name: {{user && user.name}}</div>
-    <div>Email: {{user && user.email}}></div>
+    <div>Name: {{user.name}}</div>
+    <div>Email: {{user.email}}</div>
     <div>Avatar URL: <img :src="user && user.avatar"></div>
   </div>
 </template>
@@ -11,7 +11,7 @@ import { mapState } from 'vuex';
 export default {
   computed: {
     ...mapState({
-      user: function(state) {return state.users.users[this.$route.params.id]}
+      user: function(state) {return state.users.users[this.$route.params.id] || {}}
     }),
   
   },

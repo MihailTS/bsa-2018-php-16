@@ -25,6 +25,11 @@ export default new Router({
       component: UserList
     },
     {
+      path: '/users/add',
+      name: 'user-add',
+      component: AddUser
+    },
+    {
       path: '/users/:id',
       name: 'user',
       component: ShowUser
@@ -33,11 +38,6 @@ export default new Router({
       path: '/users/:id/edit',
       name: 'user-edit',
       component: EditUser
-    },
-    {
-      path: '/users/add',
-      name: 'user-add',
-      component: AddUser
     },
     {
       path: '/albums',

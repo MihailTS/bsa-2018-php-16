@@ -1,8 +1,8 @@
 <template>
   <form>
-      <label>Name<input v-model="newUser.name" type="text" name="name"></label>
-      <label>Email<input v-model="newUser.email" type="email" name="email"></label>
-      <label>Avatar URL<input v-model="newUser.avatar" type="text" name="avatar"></label>
+      <label>Name <input v-model="newUser.name" type="text" name="name"/></label>
+      <label>Email <input v-model="newUser.email" type="email" name="email"/></label>
+      <label>Avatar URL <input v-model="newUser.avatar" type="text" name="avatar"/></label>
       <button class="btn" type="button" @click.stop.prevent="saveUser">Save user</button>
   </form>
 </template>
