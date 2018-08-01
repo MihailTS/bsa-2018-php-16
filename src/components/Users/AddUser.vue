@@ -21,7 +21,7 @@ export default {
   methods: {
     saveUser: function() {
       this.$store.dispatch("addUser",this.newUser);
-      this.$router.go(-1);
+        this.$router.push({name:'users'});
     }
   }
 }

@@ -31,7 +31,7 @@ export default {
   methods: {
     saveAlbum: function() {
       this.$store.dispatch("addAlbum",this.newAlbum);
-      this.$router.go(-1);
+      this.$router.push({name:'albums'});
     }
   }
 }

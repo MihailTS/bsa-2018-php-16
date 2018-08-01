@@ -38,11 +38,11 @@ export default {
           data:this.editedUser
         }
       );
-      this.$router.go(-1);
+      this.$router.push({name:'users'});
     },
     deleteUser: function(){
       this.$store.dispatch('deleteUser', this.$route.params.id);
-      this.$router.go(-1);
+      this.$router.push({name:'users'});
     }
   }
 }

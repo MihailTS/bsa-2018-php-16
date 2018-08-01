@@ -77,11 +77,11 @@ export default {
           data:this.editedAlbum
         }
       );
-      this.$router.go(-1);
+      this.$router.push({name:'albums'});
     },
     deleteAlbum:function(){
       this.$store.dispatch('deleteAlbum', this.$route.params.id);
-      this.$router.go(-1);
+      this.$router.push({name:'albums'});
     }
   }
 }
